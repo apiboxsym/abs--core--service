@@ -1,11 +1,10 @@
 # Project Rules
 
 - Backend: Symfony + ApiPlatform
-- Frontend: Next.js
+- Frontend: standard ApiPlatform frontend
 - Infrastructure: Kubernetes + Helm
 - Local Kubernetes: MicroK8s
 - Database: PostgreSQL
-- Cache: Redis
 - Messaging: RabbitMQ
 
 # Development Rules
@@ -22,4 +21,4 @@
 - All services must have healthchecks
 - All containers must be non-root
 - Use readiness/liveness probes
-- Use ingress-nginx
+- Use standard ApiPlatform HTTP entrypoint

@@ -4,13 +4,13 @@
 
 Использовать:
 
-MartenaSoft\*
+MartenaSoft\*Bundle
 
 Примеры:
 
-- MartenaSoft\User
-- MartenaSoft\Auth
-- MartenaSoft\Article
+- MartenaSoft\UserBundle
+- MartenaSoft\AuthBundle
+- MartenaSoft\ArticleBundle
 
 ## Код
 

@@ -29,9 +29,8 @@
 
 Настроить:
 
-* PHP
+* PHP из стандартного Docker-окружения ApiPlatform
 * PostgreSQL
-* Traefik
 * RabbitMQ
 
 Изменения в коде должны быть доступны внутри контейнеров без пересборки образов.
@@ -43,7 +42,7 @@
 Настроить локальный Kubernetes:
 
 * MicroK8s
-* Traefik Ingress
+* стандартный HTTP-вход ApiPlatform
 * PostgreSQL
 * RabbitMQ
 
