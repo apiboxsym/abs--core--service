@@ -1,28 +1,28 @@
 # Architecture
 
-## Общая концепция
+## General Concept
 
-Проект строится на базе стандартного ApiPlatform.
+The project is built on top of the standard ApiPlatform.
 
-ApiPlatform является основным приложением (Host Application).
+ApiPlatform is the main application (Host Application).
 
-Основная бизнес-логика должна находиться в отдельных Symfony Bundle.
+The core business logic must reside in separate Symfony Bundles.
 
-Цель архитектуры — возможность использовать систему как:
+The goal of the architecture is to make it possible to use the system as:
 
-* монолитное приложение;
-* набор независимых микросервисов.
+* a monolithic application;
+* a set of independent microservices.
 
-При этом бизнес-логика должна переиспользоваться без изменений.
+At the same time, the business logic must be reusable without changes.
 
 ---
 
-## Структура проекта
+## Project Structure
 
 ```text
 api-core/
 
-├── bundles/          # только локальные рабочие копии Bundle, содержимое в .gitignore
+├── bundles/          # local Bundle working copies only, contents are gitignored
 │   ├── AuthBundle/
 │   ├── UserBundle/
 │   ├── ArticleBundle/
@@ -41,26 +41,26 @@ api-core/
 
 ## ApiPlatform
 
-ApiPlatform используется без существенного изменения стандартной структуры.
+ApiPlatform is used without significant changes to its standard structure.
 
-Host Application отвечает за:
+The Host Application is responsible for:
 
-* запуск приложения;
-* конфигурацию ApiPlatform;
-* конфигурацию Doctrine;
-* конфигурацию Security;
-* подключение Bundle;
-* инфраструктурную интеграцию.
+* application startup;
+* ApiPlatform configuration;
+* Doctrine configuration;
+* Security configuration;
+* Bundle integration;
+* infrastructure integration.
 
-В Host Application запрещено размещать бизнес-логику.
+Business logic must not be placed in the Host Application.
 
 ---
 
 ## Bundle
 
-Каждый Bundle является независимым модулем.
+Each Bundle is an independent module.
 
-Bundle может содержать:
+A Bundle may contain:
 
 * Entity;
 * ApiResource;
@@ -73,17 +73,17 @@ Bundle может содержать:
 * Migration;
 * Console Command.
 
-Каждый Bundle должен быть максимально независимым от остальных.
+Each Bundle must be as independent from the others as possible.
 
 ---
 
-## Подключение Bundle
+## Bundle Integration
 
-В основном `api/composer.json` Bundle подключаются как обычные Composer-пакеты.
-Во время локальной разработки path repository подключаются только через
+In the main `api/composer.json`, Bundles are included as regular Composer packages.
+During local development, path repositories are connected only through
 `api/composer.local.json`.
 
-Пример:
+Example:
 
 ```json
 {
@@ -99,15 +99,15 @@ Bundle может содержать:
 }
 ```
 
-Файл `api/composer.local.json` и содержимое `bundles/` не должны попадать в Git.
-Изменения в локальной рабочей копии Bundle должны автоматически отражаться в
-основном приложении без публикации пакета.
+The `api/composer.local.json` file and the contents of `bundles/` must not be committed to Git.
+Changes in a local Bundle working copy should be reflected automatically in the
+main application without publishing the package.
 
 ---
 
 ## Namespace
 
-Использовать namespace:
+Use the following namespaces:
 
 ```php
 MartenaSoft\AuthBundle
@@ -118,22 +118,22 @@ MartenaSoft\MediaBundle
 
 ---
 
-## Подготовка к микросервисам
+## Preparing for Microservices
 
-Каждый Bundle должен иметь возможность быть вынесенным в отдельный сервис.
+Each Bundle must be able to be extracted into a separate service.
 
-При разработке необходимо соблюдать правила:
+The following rules must be followed during development:
 
-* минимальная связанность между Bundle;
-* отсутствие циклических зависимостей;
-* взаимодействие через интерфейсы и DTO;
-* взаимодействие через события для асинхронных процессов.
+* minimal coupling between Bundles;
+* no circular dependencies;
+* interaction through interfaces and DTOs;
+* interaction through events for asynchronous processes.
 
 ---
 
-## Работа в монолите
+## Working as a Monolith
 
-По умолчанию все Bundle подключаются в одно ApiPlatform приложение.
+By default, all Bundles are connected to a single ApiPlatform application.
 
 ```text
 ApiPlatform
@@ -145,11 +145,11 @@ ApiPlatform
 
 ---
 
-## Работа в микросервисах
+## Working as Microservices
 
-При необходимости Bundle может быть вынесен в отдельное ApiPlatform приложение.
+If needed, a Bundle can be extracted into a separate ApiPlatform application.
 
-Пример:
+Example:
 
 ```text
 auth-service
@@ -161,12 +161,12 @@ article-service
 ArticleBundle
 ```
 
-Бизнес-логика Bundle не должна изменяться при переносе.
+The Bundle business logic must not change during extraction.
 
 ---
 
-## Основной принцип
+## Core Principle
 
-Вся бизнес-логика находится в Bundle.
+All business logic resides in Bundles.
 
-ApiPlatform используется как Host Application и слой взаимодействия с API.
+ApiPlatform is used as the Host Application and the API interaction layer.

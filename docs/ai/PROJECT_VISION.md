@@ -1,27 +1,27 @@
 # ApiCode Platform
 
-## Цель проекта
+## Project Goal
 
-Создать платформу на базе ApiPlatform для разработки CMS и бизнес-приложений.
+Create a platform based on ApiPlatform for building CMS and business applications.
 
-Платформа должна поддерживать два режима работы:
+The platform must support two operating modes:
 
-1. Монолитное приложение.
-2. Набор независимых микросервисов.
+1. Monolithic application.
+2. A set of independent microservices.
 
-Переход от монолита к микросервисам должен выполняться без переписывания бизнес-логики.
+The transition from a monolith to microservices must be possible without rewriting business logic.
 
-## Основные принципы
+## Core Principles
 
-- Бизнес-логика реализуется в отдельных модулях (packages).
-- ApiPlatform выступает в роли host-приложения.
-- Каждый модуль должен иметь возможность работать:
-  - внутри монолитного приложения;
-  - внутри отдельного микросервиса.
-- Модули должны иметь минимальную связанность между собой.
-- Все новые проекты должны собираться из готовых модулей.
+- Business logic is implemented in separate modules (packages).
+- ApiPlatform acts as the host application.
+- Each module must be able to work:
+  - inside a monolithic application;
+  - inside a separate microservice.
+- Modules must have minimal coupling with one another.
+- All new projects should be assembled from ready-made modules.
 
-## Основные модули платформы
+## Core Platform Modules
 
 - Auth
 - User
@@ -30,24 +30,24 @@
 - SEO
 - Notification
 
-## Цель инфраструктуры
+## Infrastructure Goal
 
-Обеспечить одинаковый процесс разработки и запуска приложения:
+Provide a consistent development and application startup process:
 
-- локально без Docker;
-- локально через Docker;
-- локально через Kubernetes;
-- на удалённых серверах через Docker;
-- на удалённых серверах через Kubernetes.
+- locally without Docker;
+- locally with Docker;
+- locally with Kubernetes;
+- on remote servers with Docker;
+- on remote servers with Kubernetes.
 
-Поведение приложения во всех окружениях должно быть максимально одинаковым.
+Application behavior should be as consistent as possible across all environments.
 
-## Цель использования AI
+## Goal of Using AI
 
-Использовать Codex и другие AI-инструменты для:
-- проектирования модулей;
-- генерации кода;
-- рефакторинга;
-- тестирования;
-- анализа архитектуры;
-- сопровождения документации.
+Use Codex and other AI tools for:
+- module design;
+- code generation;
+- refactoring;
+- testing;
+- architecture analysis;
+- documentation maintenance.

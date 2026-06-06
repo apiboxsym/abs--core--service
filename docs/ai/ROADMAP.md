@@ -1,62 +1,62 @@
 # Roadmap
 
-# Phase 1 - Базовая платформа
+# Phase 1 - Core Platform
 
 ## ApiPlatform
 
-* Установить ApiPlatform из коробки.
-* Не изменять стандартную структуру проекта без необходимости.
-* Настроить PostgreSQL.
-* Настроить Doctrine Migrations.
-* Настроить JWT аутентификацию.
-* Настроить Swagger/OpenAPI.
+* Install ApiPlatform out of the box.
+* Do not change the standard project structure unless necessary.
+* Configure PostgreSQL.
+* Configure Doctrine Migrations.
+* Configure JWT authentication.
+* Configure Swagger/OpenAPI.
 
 ---
 
-## Локальная разработка
+## Local Development
 
-Обеспечить запуск проекта:
+Ensure the project can run:
 
-* напрямую на локальном ПК;
-* через Docker Compose;
-* через Kubernetes.
+* directly on a local machine;
+* through Docker Compose;
+* through Kubernetes.
 
-Во всех режимах приложение должно работать одинаково.
+The application should behave the same in all modes.
 
 ---
 
 ## Docker
 
-Настроить:
+Configure:
 
-* PHP из стандартного Docker-окружения ApiPlatform
+* PHP from the standard ApiPlatform Docker environment
 * PostgreSQL
 * RabbitMQ
 
-Изменения в коде должны быть доступны внутри контейнеров без пересборки образов.
+Code changes must be available inside containers without rebuilding images.
 
 ---
 
 ## Kubernetes
 
-Настроить локальный Kubernetes:
+Configure local Kubernetes:
 
 * MicroK8s
-* стандартный HTTP-вход ApiPlatform
+* standard ApiPlatform HTTP entrypoint
 * PostgreSQL
 * RabbitMQ
 
-Подготовить Helm Charts.
+Prepare Helm charts.
 
 ---
 
 ## Composer
 
-Настроить локальное подключение Bundle через `api/composer.local.json`.
-Основной `api/composer.json` должен содержать только Composer-зависимости
-пакетов; локальные path repository не должны попадать в него.
+Configure local Bundle integration through `api/composer.local.json`.
+The main `api/composer.json` must contain only Composer package
+dependencies; local path repositories must not be included in it.
 
-Пример:
+Example:
 
 ```json
 {
@@ -72,21 +72,21 @@
 }
 ```
 
-Файл `api/composer.local.json` и содержимое `bundles/` используются только для
-локальной разработки и должны быть исключены из Git. Изменения в локальной
-рабочей копии Bundle должны автоматически отражаться в основном приложении.
+The `api/composer.local.json` file and the contents of `bundles/` are used only for
+local development and must be excluded from Git. Changes in a local
+Bundle working copy should be reflected automatically in the main application.
 
 ---
 
 # Phase 2 - Bundle Architecture
 
-Создать структуру каталогов:
+Create the directory structure:
 
 ```text
 project/
 
 ├── api/
-├── bundles/          # только локальные рабочие копии, содержимое в .gitignore
+├── bundles/          # local working copies only, contents are gitignored
 │   ├── AuthBundle/
 │   ├── UserBundle/
 │   ├── ArticleBundle/
@@ -98,64 +98,64 @@ project/
 
 ## Bundle Requirements
 
-Каждый Bundle должен:
+Each Bundle must:
 
-* иметь собственный namespace;
-* иметь собственные сервисы;
-* иметь собственные ApiResource;
-* иметь собственные DTO;
-* иметь собственные миграции;
-* иметь собственные тесты.
+* have its own namespace;
+* have its own services;
+* have its own ApiResources;
+* have its own DTOs;
+* have its own migrations;
+* have its own tests.
 
 ---
 
-## Первый Bundle
+## First Bundle
 
-Реализовать:
+Implement:
 
 ### UserBundle
 
-Содержит:
+Contains:
 
-* пользователей;
-* роли;
-* права доступа.
+* users;
+* roles;
+* access rights.
 
 ---
 
-## Второй Bundle
+## Second Bundle
 
-Реализовать:
+Implement:
 
 ### AuthBundle
 
-Содержит:
+Contains:
 
-* JWT авторизацию;
+* JWT authentication;
 * refresh token;
-* управление сессиями.
+* session management.
 
 ---
 
 # Phase 3 - CMS
 
-Реализовать:
+Implement:
 
 ### ArticleBundle
 
-* статьи;
-* категории;
-* теги;
-* публикация;
-* черновики.
+* articles;
+* categories;
+* tags;
+* publishing;
+* drafts.
 
 ---
 
 ### MediaBundle
 
-* загрузка файлов;
-* изображения;
-* генерация превью.
+* file uploads;
+* images;
+* preview generation.
 
 ---
 
@@ -168,22 +168,22 @@ project/
 
 ---
 
-# Phase 4 - Подготовка к микросервисам
+# Phase 4 - Preparing for Microservices
 
-Подготовить архитектуру для выноса Bundle в отдельные сервисы.
+Prepare the architecture for extracting Bundles into separate services.
 
-Требования:
+Requirements:
 
-* отсутствие циклических зависимостей;
-* минимальная связанность;
-* взаимодействие через интерфейсы;
-* взаимодействие через события.
+* no circular dependencies;
+* minimal coupling;
+* interaction through interfaces;
+* interaction through events.
 
 ---
 
-# Phase 5 - Микросервисы
+# Phase 5 - Microservices
 
-Создать отдельные приложения:
+Create separate applications:
 
 ```text
 apps/
@@ -194,20 +194,20 @@ apps/
 └── media-service/
 ```
 
-Каждое приложение использует соответствующий Bundle как основной модуль.
+Each application uses the corresponding Bundle as its main module.
 
 ---
 
 # Definition of Success
 
-Платформа должна позволять:
+The platform must allow:
 
-1. Создать новый проект на базе стандартного ApiPlatform.
-2. Подключить необходимые Bundle через Composer.
-3. Получить рабочее приложение без изменения ядра ApiPlatform.
-4. Запускать проект:
+1. Create a new project based on the standard ApiPlatform.
+2. Connect the required Bundles through Composer.
+3. Get a working application without changing the ApiPlatform core.
+4. Run the project:
 
-    * локально без Docker;
-    * через Docker;
-    * через Kubernetes.
-5. При необходимости выносить Bundle в отдельный микросервис без переписывания бизнес-логики.
+    * locally without Docker;
+    * with Docker;
+    * with Kubernetes.
+5. When needed, extract a Bundle into a separate microservice without rewriting business logic.
