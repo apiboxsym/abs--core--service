@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../bundles/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 # Project Rules
 
 - Backend: Symfony + ApiPlatform
-- Frontend: standard ApiPlatform frontend
+- Frontend: separate project, not part of this repository
 - Infrastructure: Kubernetes + Helm
 - Local Kubernetes: MicroK8s
 - Database: PostgreSQL

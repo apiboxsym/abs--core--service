@@ -22,7 +22,7 @@ ApiPlatform является основным приложением (Host Appli
 ```text
 api-core/
 
-├── bundles/
+├── bundles/          # только локальные рабочие копии Bundle, содержимое в .gitignore
 │   ├── AuthBundle/
 │   ├── UserBundle/
 │   ├── ArticleBundle/
@@ -79,7 +79,9 @@ Bundle может содержать:
 
 ## Подключение Bundle
 
-Во время разработки Bundle подключаются локально через Composer Path Repository.
+В основном `api/composer.json` Bundle подключаются как обычные Composer-пакеты.
+Во время локальной разработки path repository подключаются только через
+`api/composer.local.json`.
 
 Пример:
 
@@ -97,7 +99,9 @@ Bundle может содержать:
 }
 ```
 
-Изменения в Bundle должны автоматически отражаться в основном приложении без публикации пакета.
+Файл `api/composer.local.json` и содержимое `bundles/` не должны попадать в Git.
+Изменения в локальной рабочей копии Bundle должны автоматически отражаться в
+основном приложении без публикации пакета.
 
 ---
 

@@ -1,0 +1,7 @@
+service:
+  type: NodePort
+
+php:
+  appEnv: dev
+  appDebug: "1"
+  trustedHosts: "^127\\.0\\.0\\.1|localhost|.*\\.local$"

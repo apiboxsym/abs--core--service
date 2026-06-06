@@ -52,7 +52,9 @@
 
 ## Composer
 
-Настроить локальное подключение Bundle через Path Repository.
+Настроить локальное подключение Bundle через `api/composer.local.json`.
+Основной `api/composer.json` должен содержать только Composer-зависимости
+пакетов; локальные path repository не должны попадать в него.
 
 Пример:
 
@@ -70,7 +72,9 @@
 }
 ```
 
-Изменения в Bundle должны автоматически отражаться в основном приложении.
+Файл `api/composer.local.json` и содержимое `bundles/` используются только для
+локальной разработки и должны быть исключены из Git. Изменения в локальной
+рабочей копии Bundle должны автоматически отражаться в основном приложении.
 
 ---
 
@@ -82,13 +86,12 @@
 project/
 
 ├── api/
-├── bundles/
-│
-├── AuthBundle/
-├── UserBundle/
-├── ArticleBundle/
-├── MediaBundle/
-└── SeoBundle/
+├── bundles/          # только локальные рабочие копии, содержимое в .gitignore
+│   ├── AuthBundle/
+│   ├── UserBundle/
+│   ├── ArticleBundle/
+│   ├── MediaBundle/
+│   └── SeoBundle/
 ```
 
 ---
