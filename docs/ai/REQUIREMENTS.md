@@ -1,6 +1,6 @@
 # Requirements
 
-## Технологии
+## Technologies
 
 - PHP 8.4+
 - Symfony 7+
@@ -11,12 +11,12 @@
 - Docker
 - Kubernetes
 
-## Требования
+## Requirements
 
-- Единая кодовая база.
-- Поддержка монолита и микросервисов.
-- Локальный запуск без Docker.
-- Локальный запуск через Docker.
-- Локальный запуск через Kubernetes.
-- Возможность развертывания в Kubernetes без изменения бизнес-кода.
-- Использование локальных Composer packages.
+- Single codebase.
+- Support for both monolith and microservices.
+- Local startup without Docker.
+- Local startup with Docker.
+- Local startup with Kubernetes.
+- Ability to deploy to Kubernetes without changing business code.
+- Use of local Composer packages.

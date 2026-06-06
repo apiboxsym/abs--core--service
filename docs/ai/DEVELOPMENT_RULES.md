@@ -2,36 +2,36 @@
 
 ## Namespace
 
-Использовать:
+Use:
 
 MartenaSoft\*Bundle
 
-Примеры:
+Examples:
 
 - MartenaSoft\UserBundle
 - MartenaSoft\AuthBundle
 - MartenaSoft\ArticleBundle
 
-## Код
+## Code
 
 - strict_types=1
-- DTO для обмена данными
-- Тонкие контроллеры
-- Бизнес-логика только в сервисах и доменных объектах
-- Покрытие тестами обязательно
+- DTOs for data exchange
+- Thin controllers
+- Business logic only in services and domain objects
+- Test coverage is mandatory
 
-## Архитектура
+## Architecture
 
-Запрещено:
+Forbidden:
 
 - Fat Controllers
 - Service Locator
-- Прямые связи между пакетами через Doctrine
-- Циклические зависимости
+- Direct links between packages through Doctrine
+- Circular dependencies
 
-Разрешено:
+Allowed:
 
-- Интерфейсы
-- События
+- Interfaces
+- Events
 - Messenger
-- Контракты
+- Contracts
