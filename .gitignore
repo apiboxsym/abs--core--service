@@ -4,3 +4,4 @@
 /api/composer.local.json
 /bundles/*
 !/bundles/.gitkeep
+.idea
