@@ -70,10 +70,7 @@ RUN set -eux; \
 
 COPY api/frankenphp/conf.d/app.dev.ini $PHP_INI_DIR/conf.d/
 
-# Include local Composer path repositories only in the dev image.
 COPY api/composer.json api/composer.lock api/symfony.* ./
-COPY api/composer.local.json ./
-COPY bundles/ /bundles/
 RUN set -eux; \
 	composer install --no-cache --prefer-dist --no-autoloader --no-scripts --no-progress
 

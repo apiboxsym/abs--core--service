@@ -1,6 +1,7 @@
 <?php
 
 return [
+    ApiBoxSym\HealthCheckBundle\HealthCheckBundle::class => ['all' => true],
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
     Symfony\Bundle\MercureBundle\MercureBundle::class => ['all' => true],
@@ -13,9 +14,4 @@ return [
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
     Symfony\Bundle\MonologBundle\MonologBundle::class => ['all' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
-    MartenaSoft\AuthBundle\AuthBundle::class => ['all' => true],
-    MartenaSoft\UserBundle\UserBundle::class => ['all' => true],
-    MartenaSoft\ArticleBundle\ArticleBundle::class => ['all' => true],
-    MartenaSoft\MediaBundle\MediaBundle::class => ['all' => true],
-    MartenaSoft\SeoBundle\SeoBundle::class => ['all' => true],
 ];

@@ -1,5 +1,5 @@
 {
-    "name": "martenasoft/api-core",
+    "name": "apiboxsym/api-core",
     "description": "ApiCode Platform API host application.",
     "type": "project",
     "license": "MIT",
@@ -9,14 +9,10 @@
         "ext-iconv": "*",
         "api-platform/doctrine-orm": "^4.1.0",
         "api-platform/symfony": "^4.1.0",
+        "apiboxsym/health-check-bundle": "*@dev",
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^3.0",
-        "martenasoft/article-bundle": "^0.1.0",
-        "martenasoft/auth-bundle": "^0.1.0",
-        "martenasoft/media-bundle": "^0.1.0",
-        "martenasoft/seo-bundle": "^0.1.0",
-        "martenasoft/user-bundle": "^0.1.0",
         "nelmio/cors-bundle": "^2.2",
         "phpstan/phpdoc-parser": "^2.0",
         "runtime/frankenphp-symfony": "^0.2",
@@ -63,7 +59,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "ApiBoxSym\\HealthCheckBundle\\": "../bundles/HealthCheckBundle/src/"
         }
     },
     "autoload-dev": {
