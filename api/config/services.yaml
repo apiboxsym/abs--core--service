@@ -20,5 +20,11 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    ApiBoxSym\HealthCheckBundle\:
+        resource: '../../bundles/HealthCheckBundle/src/'
+        exclude:
+            - '../../bundles/HealthCheckBundle/src/DependencyInjection/'
+            - '../../bundles/HealthCheckBundle/src/Entity/'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

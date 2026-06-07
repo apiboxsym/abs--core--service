@@ -110,10 +110,10 @@ main application without publishing the package.
 Use the following namespaces:
 
 ```php
-MartenaSoft\AuthBundle
-MartenaSoft\UserBundle
-MartenaSoft\ArticleBundle
-MartenaSoft\MediaBundle
+ApiBoxSym\AuthBundle
+ApiBoxSym\UserBundle
+ApiBoxSym\ArticleBundle
+ApiBoxSym\MediaBundle
 ```
 
 ---

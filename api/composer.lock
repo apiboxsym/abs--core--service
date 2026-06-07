@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6dea7f3fc868f113235e2228fd8c297d",
+    "content-hash": "05a4f122ae05aa06ae31bb649f5218af",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -1110,6 +1110,40 @@
                 "source": "https://github.com/api-platform/validator/tree/v4.1.0"
             },
             "time": "2025-02-28T10:08:08+00:00"
+        },
+        {
+            "name": "apiboxsym/health-check-bundle",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../bundles/HealthCheckBundle",
+                "reference": "25ebc822d6fa87051f77fda54289cb626d1f5801"
+            },
+            "require": {
+                "php": ">=8.4",
+                "symfony/framework-bundle": "7.2.*",
+                "symfony/http-foundation": "7.2.*",
+                "symfony/routing": "7.2.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ApiBoxSym\\HealthCheckBundle\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Health check bundle for ABS API host application.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "doctrine/cache",
@@ -2483,136 +2517,6 @@
                 }
             ],
             "time": "2025-01-26T21:29:45+00:00"
-        },
-        {
-            "name": "martenasoft/article-bundle",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "../bundles/ArticleBundle",
-                "reference": "796da861d32975625ac4138de023d9fb49c9c34a"
-            },
-            "require": {
-                "php": ">=8.4",
-                "symfony/framework-bundle": "^7.2"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "MartenaSoft\\ArticleBundle\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "martenasoft/auth-bundle",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "../bundles/AuthBundle",
-                "reference": "cda7c909e7c4e2d72c3b28526ffb8e69c9456727"
-            },
-            "require": {
-                "php": ">=8.4",
-                "symfony/framework-bundle": "^7.2"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "MartenaSoft\\AuthBundle\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "martenasoft/media-bundle",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "../bundles/MediaBundle",
-                "reference": "d243a693be4cf5fb6e26f7759e71e3006aa0d447"
-            },
-            "require": {
-                "php": ">=8.4",
-                "symfony/framework-bundle": "^7.2"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "MartenaSoft\\MediaBundle\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "martenasoft/seo-bundle",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "../bundles/SeoBundle",
-                "reference": "5b908b2769c01a30e3ec5ff9826e6ddcac1ef9c4"
-            },
-            "require": {
-                "php": ">=8.4",
-                "symfony/framework-bundle": "^7.2"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "MartenaSoft\\SeoBundle\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "martenasoft/user-bundle",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "../bundles/UserBundle",
-                "reference": "8a8086baabfa295b1ecf669d4dfbc9fd3a054682"
-            },
-            "require": {
-                "php": ">=8.4",
-                "symfony/framework-bundle": "^7.2"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "MartenaSoft\\UserBundle\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
         },
         {
             "name": "monolog/monolog",
@@ -10327,7 +10231,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "apiboxsym/health-check-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -10336,5 +10242,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }

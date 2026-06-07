@@ -4,13 +4,13 @@
 
 Use:
 
-MartenaSoft\*Bundle
+ApiBoxSym\*Bundle
 
 Examples:
 
-- MartenaSoft\UserBundle
-- MartenaSoft\AuthBundle
-- MartenaSoft\ArticleBundle
+- ApiBoxSym\UserBundle
+- ApiBoxSym\AuthBundle
+- ApiBoxSym\ArticleBundle
 
 ## Code
 
